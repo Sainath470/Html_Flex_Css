@@ -1,0 +1,70 @@
+<!doctype html>
+<title>Example</title>
+<style>
+  * {
+    box-sizing: border-box; 
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
+  }
+  .col-1 {
+    background: aqua;
+    flex: 1;
+  }
+  .col-2 {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .content > article {
+    flex: 3;
+    min-height: 60vh;
+  }
+  .content > aside {
+    background: beige;
+    flex: 1;
+  }
+  header, footer {
+    background: yellowgreen;
+    height: 20vh;
+  }
+  header, footer, article, nav, aside {
+    padding: 1em;
+  }
+</style>
+<body>
+  <nav class="col-1">LEFT BOX</nav>
+  <div class="col-2">
+  	<h1><header>Header</header></h1>
+    <main class="content">
+        <sections class="mainContentItem"> 
+            <article>
+                <h2>First article</h2>
+                <p> Tacos actually microdosing, pour -over semiotics banjo chicharrones</p>
+            </article>
+
+            <article>
+                <h2> Second article</h2>
+                <p>Tacos actually microdosing, pour -over semiotics banjo chicharrones </p>
+            </article>
+
+            <article>
+                <h2>Third article</h2>
+
+                <p>Tacos actually microdosing, pour -over semiotics banjo chicharrones</p>
+                <p>Cray food truck brunch, XOXO +1 keffiyeh pickled chambray</p>
+            </article>
+        </sections>
+    <article>Article</article>
+    <aside>Aside</aside>
+    </main>
+  	<footer>Footer</footer>
+  </div>
+</body>
