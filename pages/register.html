@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
-    <link rel="stylesheet" href="../css/register.css"
+    <link rel="stylesheet" href="../css/register.css" />
+    <!-- Served to all users -->
+    <link rel="stylesheet" href="all.css" media="all" />
 </head>
+
 <body>
     <form action="" onsubmit="handleSubmit()">
         <header class="headerContainer">
@@ -19,10 +22,12 @@
         <div>
             <label for="pwd">password input type</label>
             <input type="password" name="pwd" id="pwd" placeholder="Enter the password" required>
+            <error-output class="pwd-error" for="pwd"></error-output>
         </div>
         <div>
             <label for="email">Email input type</label>
             <input type="email" name="pwd" id="email" placeholder="Enter the email">
+            <error-output class="email-error" for="email"></error-output>
         </div>
         <div>
             <label for="url">Url input type</label>
@@ -35,6 +40,7 @@
         <div>
             <label for="tel">Tel input type</label>
             <input type="tel" name="tel" id="tel" placeholder="Enter the tel">
+            <error-output class="tel-error" for="tel"></error-output>
         </div>
         <div>
             <label for="Search">Search input type</label>
@@ -56,6 +62,7 @@
         </div>
     </form>
     <script>
+        // UC1---Checking Regex Expression for Name
         const text = document.querySelector("#text");
         const textError = document.querySelector('.text-error');
         text.addEventListener('input', function() {
@@ -64,6 +71,42 @@
                 textError.textContent = "";
             }else{
                 textError.textContent = "Name is incorrect"
+            }
+        });
+
+        //UC2---Checking Regex Expression for email
+        const email = document.querySelector("#email");
+        const emailError = document.querySelector('.email-error');
+        email.addEventListener('input', function() {
+            let emailRegex = RegExp('^[A-Za-z]+([.+-]?[a-z A-z0-9]+)?@[a-zA-z0-9]{1,6}\\.[a-zA-Z]{2,6},?([.][a-zA-z+,]{2,6})?$');
+            if(emailRegex.test(email.value)){
+                emailError.textContent = "";
+            }else{
+                emailError.textContent = "Email is incorrect"
+            }
+        });
+
+        //UC3--Checking Regex Expression for telephone number
+        const tel = document.querySelector("#tel");
+        const telError = document.querySelector('.tel-error');
+        tel.addEventListener('input', function() {
+            let telRegex = RegExp('^[91]{2}\\s[0-9]{10}');
+            if(telRegex.test(tel.value)){
+                telError.textContent = "";
+            }else{
+                telError.textContent = "Incorrect mobile no."
+            }
+        });
+
+        //UC4---Checking Regex Expression and password Validation 8 rules passed.
+        const pwd = document.querySelector("#pwd");
+        const pwdError = document.querySelector('.pwd-error');
+        pwd.addEventListener('input', function() {
+            let pwdRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}$');   
+            if(pwdRegex.test(pwd.value)){
+                pwdError.textContent = "";
+            }else{
+                pwdError.textContent = "Incorrect password."
             }
         });
 

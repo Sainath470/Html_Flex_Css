@@ -29,9 +29,16 @@ div{
     align-items: center;
 }
 
-label, input, button{
+label, input{
     font-size: 16px;
     line-height: 1.5;
+}
+
+button{
+    font-size: small;
+    align-content: center;
+    width: 70%;
+    margin: 0 auto;
 }
 
 label{
@@ -44,14 +51,10 @@ input{
     flex: auto;
 }
 
-button{
-    width: 70%;
-    margin: 0 auto;
-}
 
 error-output{
     font-size: 12px;
     font-style: italic;
-    color: red;
+    color: rgb(216, 109, 109);
 }
 
